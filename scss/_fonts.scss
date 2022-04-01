@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito+Sans:wght@400;600;700;800&family=Rubik:wght@400;500&display=swap');
+@font-face {
+	font-family:"GraphikRegular" ;
+	src: url(../fonts/GraphikRegular.otf) format("truetype");
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "GraphikBold";
+	src: url("../fonts/GraphikBold.otf") format(truetype);
+	font-style: bold;
+	font-weight: 700;
+}
+$mont_font: 'Montserrat', sans-serif;
+$nunito_font: 'Nunito Sans', sans-serif;
+$rubik_font:  'Rubik', sans-serif;

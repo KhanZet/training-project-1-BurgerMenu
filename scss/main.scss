@@ -1,0 +1,172 @@
+@import 'reset_new';
+@import 'fonts';
+body{
+	font-family:$nunito_font ;
+	font-weight: 600;
+	font-size: 24px;
+	background-color: #181818;
+	color: #fff;
+
+}
+
+.wrapper {
+	min-height: 100%;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+
+}
+
+.page{
+	padding: 90px 0px 30px 0px;
+	&__section{
+		padding: 30px;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	&__section_1{
+		background-color: #794f45;
+	}
+	&__section_2{
+		background-color: #77608d;
+	}
+	&__section_3{
+		background-color: #7a956b;
+	}
+	&__title{
+		font-size: 40px;
+		margin: 0px 0px 20px 0px;
+	}
+	&__sub-title{
+		font-size: 30px;
+		margin: 0px 0px 20px 0px;
+	}
+	&__text{
+		font-size: 16px;
+		line-height: 150%;
+
+		p {
+			margin: 0px 0px 20px 0px;
+		}
+	}
+}
+
+// nav
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	background-color: #912105;
+	&__container{
+		min-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		padding: 0px 30px;
+		align-items: center;
+		justify-content: space-between;
+		min-height: 70px;
+	}
+	&__logo{
+		border-radius: 50%;
+		background-color: #fff;
+		position: relative;
+		width: 40px;
+		height: 40px;
+	}
+	&__menu{}
+}
+
+.menu{
+	&__icon{}
+	&__body{}
+	&__list{
+		& > li {
+			position: relative;
+			margin: 0px 0px 0px 20px;
+		}
+	}
+	&__link{
+		color: #fff;
+		font-size: 18px;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	&__sub-list{
+		position: absolute;
+		top: 100%;
+		right: -4;
+		background-color: #181818;
+		padding: 15px;
+		min-width: 200px;
+		border-radius: 7px;
+		border: 2px dashed #6b1a06;
+
+		li { 
+			padding: 0px 0px 10px 0px;
+		}
+		li:last-child {
+			margin: 0;
+		}
+
+	}
+	&__sub-link{
+		color: #fff;
+		font-size: 16px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+// -------------------------
+body._pc {
+	.menu__list{
+		.menu__li_up {
+			transform: translate(0px, -4px);
+			transition: all 0.4s ease 0s;
+		}
+		& > li:hover {
+			
+			.menu__sub-list {
+				opacity: 1;
+				visibility: visible;
+				transform: translate(0px, 0px);
+				pointer-events: all;
+			}
+		}
+		
+	}
+	
+}
+
+
+// -------------------------
+@media (min-width: 767px) {
+	.menu{
+		&__icon{}
+		&__body{}
+		&__list{
+			display: flex;
+			align-items: center;
+			& > li {
+				padding: 10px 0;
+			}
+		}
+		&__link{}
+		&__sub-list{
+			transform: translate(0px, 10%);
+			opacity: 0;
+			visibility: hidden;
+			pointer-events:none;
+			transition: all 0.4s ease 0s;
+		}
+		&__sub-link{}
+	}
+}
+
