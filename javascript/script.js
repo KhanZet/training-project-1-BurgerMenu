@@ -51,6 +51,9 @@ const liSubList = document.querySelector('.menu__li_sub-list');
 
 liSubList.addEventListener("mouseout",function(e) {liSubList.classList.remove('menu__li_up');});
 liSubList.addEventListener("mouseover",function(e) {liSubList.classList.add('menu__li_up');})
+liSubList.addEventListener("click", function(e) {
+	liSubList.children[1].classList.toggle('_active');
+});
 
 const gotoLinks = document.querySelectorAll('.menu__link[data-goto]');
 if(gotoLinks.length > 0) {
@@ -62,7 +65,13 @@ if(gotoLinks.length > 0) {
 		if(gotoLink.dataset.goto && document.querySelector(gotoLink.dataset.goto)){
 			const gotoBlock = document.querySelector(gotoLink.dataset.goto);
 			const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.header').offsetHeight;
-			console.log(gotoBlock.getBoundingClientRect().top + ' | ' + pageYOffset);
+			
+			if(iconMenu.classList.contains("_active")){
+				document.body.classList.remove("_lock");
+				iconMenu.classList.remove("_active");
+				menuBody.classList.remove("_active");
+			}
+
 			window.scrollTo({
 				top: gotoBlockValue,
 				behavior: "smooth"
@@ -70,4 +79,17 @@ if(gotoLinks.length > 0) {
 			e.preventDefault()
 		}
 	}
+}
+
+// BurgerMenu
+
+const menuBody = document.querySelector('.menu__body');
+const iconMenu = document.querySelector('.menu__icon')
+if(iconMenu){
+	iconMenu.addEventListener("click", function(e) {
+		document.body.classList.toggle("_lock");
+		iconMenu.classList.toggle("_active");
+		menuBody.classList.toggle("_active");
+
+	})
 }
