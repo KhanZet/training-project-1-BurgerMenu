@@ -52,15 +52,22 @@ const liSubList = document.querySelector('.menu__li_sub-list');
 liSubList.addEventListener("mouseout",function(e) {liSubList.classList.remove('menu__li_up');});
 liSubList.addEventListener("mouseover",function(e) {liSubList.classList.add('menu__li_up');})
 
-// const gotoLinks = document.querySelectorAll('.menu__link[data-goto]')
-// if(gotoLinks.length > 0) {
-// 	gotoLinks.forEach(gotoLink => {
-// 		gotoLink.addEventListener("click", onMenuLinkClick)
-// 	});
-// 	function onMenuLinkClick (e) {
-// 		const gotoLink = e.target;
-// 		if(gotoLink.dataset.goto && document.querySelector(gotoLink.dataset.goto)){
-			
-// 		}
-// 	}
-// }
+const gotoLinks = document.querySelectorAll('.menu__link[data-goto]');
+if(gotoLinks.length > 0) {
+	gotoLinks.forEach(gotoLink => {
+		gotoLink.addEventListener("click", onMenuLinkClick)
+	});
+	function onMenuLinkClick (e) {
+		const gotoLink = e.target;
+		if(gotoLink.dataset.goto && document.querySelector(gotoLink.dataset.goto)){
+			const gotoBlock = document.querySelector(gotoLink.dataset.goto);
+			const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.header').offsetHeight;
+			console.log(gotoBlock.getBoundingClientRect().top + ' | ' + pageYOffset);
+			window.scrollTo({
+				top: gotoBlockValue,
+				behavior: "smooth"
+			});
+			e.preventDefault()
+		}
+	}
+}
