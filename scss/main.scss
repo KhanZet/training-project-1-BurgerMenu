@@ -258,6 +258,10 @@ body._pc {
 		&__list > li:last-child {
 			margin: 0;
 		}
+		&__list{
+			flex-direction: column;
+			align-items: flex-start;
+		}
 		&__link {
 			font-size: 24px;
 		}
